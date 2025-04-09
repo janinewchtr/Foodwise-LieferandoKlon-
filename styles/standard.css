@@ -21,6 +21,7 @@ h1{
 .content{
     width: calc(100% - 250px);
     margin-top: 60px;
+    margin-bottom: 48px;
 }
 
 .dish-card{
@@ -66,3 +67,16 @@ h1{
     font-weight: 600;
     padding-top: 16px;
   }
+
+
+  .footer_bar{
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 40px;
+      width: 100%;
+      background-color: #FFAE00;
+      position: fixed;
+      display: flex;
+  }
+  
