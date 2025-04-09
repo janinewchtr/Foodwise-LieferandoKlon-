@@ -1,0 +1,133 @@
+async function includeHTML() {
+    let includeElements = document.querySelectorAll('[w3-include-html]');
+    for (let i = 0; i < includeElements.length; i++) {
+        const element = includeElements[i];
+        file = element.getAttribute("w3-include-html"); // "includes/header.html"
+        let resp = await fetch(file);
+        if (resp.ok) {
+            element.innerHTML = await resp.text();
+        } else {
+            element.innerHTML = 'Page not found';
+        }
+    }
+  }
+
+  let cart = [];
+
+  function renderDishes(){
+    let dishContainer = document.getElementById("dishes-container");
+    dishContainer.innerHTML = "";
+  
+    for (let dishIndex = 0; dishIndex < dishes.length; dishIndex++) {
+        let dish = dishes[dishIndex];
+        dishContainer.innerHTML += dishCardTemplate(dish);
+    }
+
+    let savedCart = localStorage.getItem("cart");
+        if (savedCart) {
+          cart = JSON.parse(savedCart);
+            
+  updateCart();
+}
+  }
+  
+  function addToCart(dishName){
+    let dish = null;
+    for (let dishIndex = 0; dishIndex < dishes.length; dishIndex++){
+        if (dishes[dishIndex].name === dishName) {
+            dish = dishes[dishIndex];
+        }
+    }
+  
+    let alreadyInCart = false;
+    for (let cartIndex = 0; cartIndex < cart.length; cartIndex++){
+        if (cart[cartIndex].name === dishName){
+            cart[cartIndex].quantity++;
+            alreadyInCart = true;
+        }
+    }
+  
+    if (!alreadyInCart) {
+        cart.push({
+          name: dish.name,
+          price: dish.price,
+          quantity: 1
+        });
+    }
+
+    updateCart();
+  }
+  
+  function updateCart() {
+    let basketItems = document.getElementById('basket-items');
+    basketItems.innerHTML = ""; 
+  
+    for (let cartIndex = 0; cartIndex < cart.length; cartIndex++) {
+      let dish = cart[cartIndex];
+      basketItems.innerHTML += basketItemTemplate(dish);
+    }
+    localStorage.setItem("cart", JSON.stringify(cart));
+    updateSum();
+  }
+
+  function updateSum() {
+    let subTotal = 0;
+  
+    for (let cartIndex = 0; cartIndex < cart.length; cartIndex++) {
+      let dishInCart = cart[cartIndex];
+      subTotal += dishInCart.price * dishInCart.quantity;
+    }
+  
+    let deliveryCost = 5;
+    let totalSum = subTotal + deliveryCost;
+  
+    document.getElementById("subTotal").innerHTML = `Zwischensumme: ${subTotal.toFixed(2)}€`;
+    document.getElementById("deliveryCosts").innerHTML = `Lieferkosten: ${deliveryCost.toFixed(2)}€`;
+    document.getElementById("totalCosts").innerHTML = `Gesamt: ${totalSum.toFixed(2)}€`;
+}
+
+function increaseQuantity(dishName){
+    for (let cartIndex = 0; cartIndex < cart.length; cartIndex++){
+        if (cart[cartIndex].name === dishName){
+            cart[cartIndex].quantity++;
+        }
+    }
+    
+    updateCart();
+}
+
+function decreaseQuantity(dishName){
+    for (let cartIndex = 0; cartIndex < cart.length; cartIndex++){
+        if (cart[cartIndex].name === dishName) {
+            if (cart[cartIndex].quantity > 1) {
+              cart[cartIndex].quantity--;
+            } else {
+              cart.splice(cartIndex, 1);
+            }
+        }
+    }
+    updateCart();
+}
+
+function removeFromCart(dishName){
+    for (let cartIndex = 0; cartIndex < cart.length; cartIndex++){
+        if (cart[cartIndex].name === dishName){
+            cart.splice(cartIndex, 1)
+        }
+    }
+    updateCart();
+}
+
+function toggleMobileBasket() {
+  let basket = document.getElementById('basket');
+  let content = document.getElementById('content');
+
+  let visible = basket.classList.toggle('show');
+  content.classList.toggle('hide', visible);
+
+
+    updateCart();
+  
+}
+
+

@@ -1,0 +1,22 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    height: 100%;
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    color: #615C5C;
+}
+
+.content_wrapper{
+    display: flex;
+    flex-direction: row;
+}
+
+.d-none{
+    display: none;
+}

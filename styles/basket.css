@@ -1,0 +1,97 @@
+.basket_wrapper{
+    width: 250px;
+    border-left: 1px solid #B2AFAA;
+    border-bottom-left-radius: 10px;
+    margin-top: 60px;
+    padding: 16px;
+}
+
+.sticky_basket{
+    width: 100%;
+    height: calc(100vh - 120px);
+    position: sticky;
+    top: 120px;
+}
+
+.basket_headline{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+
+.basket_position{
+    margin-top: 24px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 16px;
+}
+
+.basket_quantity{
+    display: flex;
+    align-items: center;
+}
+
+.dish-basketprice{
+    font-family: 'Lato', sans-serif;
+    font-size: 16px;
+    color: #615C5C;
+    font-weight: 400;
+    padding-left: 16px;
+
+}
+
+.shoppingcard_sum{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: #f59b0039;
+    border-radius: 10px;
+    padding: 8px;
+}
+
+.trash{
+    padding-left: 8px;
+    padding-top: 4px;
+}
+
+
+@media (max-width: 550px) {
+    .burger-icon {
+      display: block !important;
+      cursor: pointer;
+    }
+  
+    #basket {
+      display: none;
+      width: 100%;
+      margin-top: 100px;
+      padding: 16px;
+      border: none;
+    }
+  
+    #basket.show {
+      display: block;
+    }
+  
+    .sticky_basket {
+      position: static;
+      height: auto;
+    }
+  
+    .content.hide {
+      display: none;
+    }
+  
+    .basket_headline,
+    .shoppingcard_sum,
+    .basket_position {
+      align-items: center;
+      text-align: center;
+    }
+
+    .content{
+        width: 100%;
+    }
+  }

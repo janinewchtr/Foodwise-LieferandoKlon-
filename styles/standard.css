@@ -1,0 +1,68 @@
+.header_bar {
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 90px;
+    width: 100%;
+    background-color: #FFAE00;
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+h1{
+    font-family: 'League Spartan', sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    color: #615C5C;
+}
+
+.content{
+    width: calc(100% - 250px);
+    margin-top: 60px;
+}
+
+.dish-card{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 20px;
+    margin: 16px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.2s ease-in-out;
+}
+
+.dish-card:hover {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    background-color: rgba(246, 239, 222);
+  }
+
+.dish-info {
+    display: flex;
+    flex-direction: column;
+  }
+
+.dish-title {
+    font-family: 'League Spartan', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 4px;
+    color: #333;
+  }
+  
+.dish-description {
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+    color: #666;
+  }
+
+.dish-price {
+    font-family: 'Lato', sans-serif;
+    font-size: 16px;
+    color: #f59c00;
+    font-weight: 600;
+    padding-top: 16px;
+  }
