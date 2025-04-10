@@ -10,7 +10,8 @@
     width: 100%;
     height: calc(100vh - 120px);
     position: sticky;
-    top: 120px;
+    top: 90px;
+    overflow-y: auto;
 }
 
 .basket_headline{
@@ -66,7 +67,7 @@
     #basket {
       display: none;
       width: 100%;
-      margin-top: 100px;
+      margin-top: 120px;
       padding: 16px;
       border: none;
     }
@@ -78,6 +79,7 @@
     .sticky_basket {
       position: static;
       height: auto;
+      margin-bottom: 64px;
     }
   
     .content.hide {
@@ -94,4 +96,5 @@
     .content{
         width: 100%;
     }
-  }
+
+}

@@ -15,7 +15,7 @@ async function includeHTML() {
   let cart = [];
 
   function renderDishes(){
-    let dishContainer = document.getElementById("dishes-container");
+    let dishContainer = document.getElementById('dishes-container');
     dishContainer.innerHTML = "";
   
     for (let dishIndex = 0; dishIndex < dishes.length; dishIndex++) {
@@ -51,7 +51,7 @@ async function includeHTML() {
         cart.push({
           name: dish.name,
           price: dish.price,
-          quantity: 1
+          quantity: 1,
         });
     }
 
@@ -130,4 +130,34 @@ function toggleMobileBasket() {
   
 }
 
+function closePopUp(){
+  let popUp = document.getElementById('order-Popup');
+  if(popUp){
+    popUp.remove();
+  }
+
+  clearBasket();
+
+}
+
+function orderEvent(){
+  let thanksPopUp = document.getElementById('order-Popup');
+  if(thanksPopUp){
+    thanksPopUp.remove();
+  }
+
+  let popUpContainer = document.createElement('div');
+  popUpContainer.innerHTML = orderPopUp();
+
+  document.body.appendChild(popUpContainer.firstElementChild);
+
+  setTimeout(closePopUp, 1000);
+
+}
+
+function clearBasket(){
+
+  cart = [];
+  updateCart();
+}
 

@@ -32,9 +32,19 @@ function dishCardTemplate(dish) {
             <div class="dish-basketprice">${(dish.price * dish.quantity).toFixed(2)}€</div>
           </div>
           <div class="trash" onclick="removeFromCart('${dish.name}')">
-            <img src="/assets/icons/Trash 2.png" alt="trash">
+            <img src="./assets/icons/Trash 2.svg" alt="trash">
           </div>
         </div>
       </div>
     `;
   }
+
+
+  function orderPopUp(){
+    return `      
+    <div id="order-Popup" class="popup-message">
+    <h2>Vielen Dank für deine Bestellung!</h2>
+    <img src="./assets/icons/Thumbsup.svg" alt="Thumbs up">
+  </div>
+`;
+}
