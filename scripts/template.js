@@ -48,3 +48,11 @@ function dishCardTemplate(dish) {
   </div>
 `;
 }
+
+function emptyCardMessage(){
+  return`
+  <div id="empty-Popup" class="popup-message">
+  <h2>Bitte füge etwas dem Warenkorb hinzu!</h2>
+  </div>
+  `
+}

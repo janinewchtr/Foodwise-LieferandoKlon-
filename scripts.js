@@ -128,10 +128,17 @@ function toggleMobileBasket() {
 
     updateCart();
   
+
 }
 
 function closePopUp(){
+  let emptyPopUp = document.getElementById('empty-Popup');
   let popUp = document.getElementById('order-Popup');
+
+  if(emptyPopUp){
+    emptyPopUp.remove()
+  }
+
   if(popUp){
     popUp.remove();
   }
@@ -141,7 +148,13 @@ function closePopUp(){
 }
 
 function orderEvent(){
+  if(cart.length === 0){
+    showEmptyCardMessage();
+
+  } else{
+
   let thanksPopUp = document.getElementById('order-Popup');
+
   if(thanksPopUp){
     thanksPopUp.remove();
   }
@@ -153,6 +166,7 @@ function orderEvent(){
 
   setTimeout(closePopUp, 1000);
 
+   }
 }
 
 function clearBasket(){
@@ -161,3 +175,13 @@ function clearBasket(){
   updateCart();
 }
 
+
+function showEmptyCardMessage(){
+  let emptyMessage = document.createElement('div');
+  emptyMessage.innerHTML = emptyCardMessage();
+
+  document.body.appendChild(emptyMessage);
+
+  setTimeout(closePopUp, 1000);
+
+}
