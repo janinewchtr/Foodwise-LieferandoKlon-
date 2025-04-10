@@ -8,7 +8,7 @@ function dishCardTemplate(dish) {
         </div>
         <div class="add-dish">
           <button class="add-button">
-            <img src="/assets/icons/add_circle.png" alt="addBtn">
+            <img src="./assets/icons/add_circle.png" alt="addBtn">
           </button>
         </div>
       </div>
@@ -22,11 +22,11 @@ function dishCardTemplate(dish) {
         <div class="dish-title">${dish.name}</div>
         <div class="basket_quantity">
           <button class="reduce_basketbtn" onclick="decreaseQuantity('${dish.name}')">
-            <img src="/assets/icons/Minus.png" alt="reduce">
+            <img src="./assets/icons/Minus.png" alt="reduce">
           </button>
           <div class="basket_number">${dish.quantity} Stk.</div>
           <button class="add_basketbtn" onclick="increaseQuantity('${dish.name}')">
-            <img src="/assets/icons/add.png" alt="add">
+            <img src="./assets/icons/add.png" alt="add">
           </button>
           <div class="basket_price">
             <div class="dish-basketprice">${(dish.price * dish.quantity).toFixed(2)}€</div>
