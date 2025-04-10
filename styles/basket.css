@@ -57,11 +57,23 @@
     padding-top: 4px;
 }
 
+.mobile-total {
+  font-size: 16px;
+  font-weight: 600;
+  margin-right: 16px;
+  color: #fff;
+}
+
 
 @media (max-width: 550px) {
     .burger-icon {
       display: block !important;
       cursor: pointer;
+      padding-right: 8px;
+    }
+
+    .mobile-total{
+      display: block !important;
     }
   
     #basket {
@@ -97,4 +109,11 @@
         width: 100%;
     }
 
+}
+
+
+@media (max-width: 420px) {
+  .logo{
+    width: 180px;
+  }
 }
