@@ -8,7 +8,7 @@
 
 .sticky_basket{
     width: 100%;
-    height: calc(100vh - 120px);
+    height: calc(100vh - 150px);
     position: sticky;
     top: 90px;
     overflow-y: auto;
