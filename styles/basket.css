@@ -55,6 +55,7 @@
 .trash{
     padding-left: 8px;
     padding-top: 4px;
+    cursor: pointer;
 }
 
 

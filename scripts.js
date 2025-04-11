@@ -12,7 +12,11 @@ async function includeHTML() {
     }
   }
 
+
+  
   let cart = [];
+
+
 
   function renderDishes(){
     let dishContainer = document.getElementById('dishes-container');
@@ -31,6 +35,8 @@ async function includeHTML() {
 }
   }
   
+
+
   function addToCart(dishName){
     let dish = null;
     for (let dishIndex = 0; dishIndex < dishes.length; dishIndex++){
@@ -58,6 +64,8 @@ async function includeHTML() {
     updateCart();
   }
   
+
+
   function updateCart() {
     let basketItems = document.getElementById('basket-items');
     basketItems.innerHTML = ""; 
@@ -69,6 +77,8 @@ async function includeHTML() {
     localStorage.setItem("cart", JSON.stringify(cart));
     updateSum();
   }
+
+
 
   function updateSum() {
     let subTotal = 0;
@@ -86,6 +96,8 @@ async function includeHTML() {
     document.getElementById("totalCosts").innerHTML = `Gesamt: ${totalSum.toFixed(2)}€`;
 }
 
+
+
 function increaseQuantity(dishName){
     for (let cartIndex = 0; cartIndex < cart.length; cartIndex++){
         if (cart[cartIndex].name === dishName){
@@ -95,6 +107,8 @@ function increaseQuantity(dishName){
     
     updateCart();
 }
+
+
 
 function decreaseQuantity(dishName){
     for (let cartIndex = 0; cartIndex < cart.length; cartIndex++){
@@ -109,6 +123,8 @@ function decreaseQuantity(dishName){
     updateCart();
 }
 
+
+
 function removeFromCart(dishName){
     for (let cartIndex = 0; cartIndex < cart.length; cartIndex++){
         if (cart[cartIndex].name === dishName){
@@ -117,6 +133,8 @@ function removeFromCart(dishName){
     }
     updateCart();
 }
+
+
 
 function toggleMobileBasket() {
   let basket = document.getElementById('basket');
@@ -128,15 +146,16 @@ function toggleMobileBasket() {
 
     updateCart();
   
-
 }
+
+
 
 function closePopUp(){
   let emptyPopUp = document.getElementById('empty-Popup');
   let popUp = document.getElementById('order-Popup');
 
   if(emptyPopUp){
-    emptyPopUp.remove()
+    emptyPopUp.remove();
   }
 
   if(popUp){
@@ -146,6 +165,8 @@ function closePopUp(){
   clearBasket();
 
 }
+
+
 
 function orderEvent(){
   if(cart.length === 0){
@@ -169,11 +190,15 @@ function orderEvent(){
    }
 }
 
+
+
 function clearBasket(){
 
   cart = [];
   updateCart();
 }
+
+
 
 
 function showEmptyCardMessage(){
