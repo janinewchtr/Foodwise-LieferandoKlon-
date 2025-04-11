@@ -36,6 +36,7 @@
     background: transparent;
     border: none;
     padding-bottom: 24px;
+    cursor: pointer;
 }
 
 .reduce_basketbtn{
