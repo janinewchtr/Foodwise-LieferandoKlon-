@@ -13,7 +13,7 @@ async function includeHTML() {
   }
 
 
-  
+
   let cart = [];
 
 
@@ -36,15 +36,29 @@ async function includeHTML() {
   }
   
 
-
   function addToCart(dishName){
+    let dish = findDish(dishName);
+    let alreadyInCart = checkAlreadyInCart(dishName);
+    addDishIfNotInCart(dish, alreadyInCart);
+
+    updateCart();
+  }
+
+
+  function findDish(dishName){
     let dish = null;
     for (let dishIndex = 0; dishIndex < dishes.length; dishIndex++){
         if (dishes[dishIndex].name === dishName) {
             dish = dishes[dishIndex];
         }
     }
+
+    return dish;
+  }
   
+
+
+  function checkAlreadyInCart(dishName) {
     let alreadyInCart = false;
     for (let cartIndex = 0; cartIndex < cart.length; cartIndex++){
         if (cart[cartIndex].name === dishName){
@@ -52,8 +66,14 @@ async function includeHTML() {
             alreadyInCart = true;
         }
     }
+
+    return alreadyInCart;
+  }
   
-    if (!alreadyInCart) {
+
+
+  function addDishIfNotInCart(dish, alreadyInCart){
+    if (!alreadyInCart && dish !== null) {
         cart.push({
           name: dish.name,
           price: dish.price,
@@ -61,7 +81,6 @@ async function includeHTML() {
         });
     }
 
-    updateCart();
   }
   
 
@@ -167,19 +186,27 @@ function closePopUp(){
 }
 
 
-
 function orderEvent(){
   if(cart.length === 0){
     showEmptyCardMessage();
 
   } else{
+    removeExistingOrderPopUp();
+    showOrderPopUp();
+  }
+}
 
+
+
+function removeExistingOrderPopUp(){
   let thanksPopUp = document.getElementById('order-Popup');
 
   if(thanksPopUp){
     thanksPopUp.remove();
   }
+}
 
+function showOrderPopUp(){
   let popUpContainer = document.createElement('div');
   popUpContainer.innerHTML = orderPopUp();
 
@@ -188,7 +215,6 @@ function orderEvent(){
   setTimeout(closePopUp, 1000);
 
    }
-}
 
 
 
